@@ -1,4 +1,4 @@
-# Bash and PowerShell Script to Initiate Running App Automatically
+# Shell and PowerShell Script to Initiate Running App Automatically
 
 ### Things todo list
 
