@@ -1,7 +1,12 @@
+# $currentIp = (Get-NetIPAddress | Where-Object {
+#         $_.AddressFamily -eq 'IPv4' -and 
+#     ($_.IPAddress -like '192.168.*' -or $_.IPAddress -like '172.16.*' -or $_.IPAddress -like '10.*')
+#     }).IPAddress
+
 $currentIp = (Get-NetIPAddress | Where-Object {
-        $_.AddressFamily -eq 'IPv4' -and 
-    ($_.IPAddress -like '192.168.*' -or $_.IPAddress -like '172.16.*' -or $_.IPAddress -like '10.*')
-    }).IPAddress
+    $_.InterfaceAlias -like '*Wi-Fi*' -and
+    $_.AddressFamily -eq 'IPv4'
+}).IPAddress
 
 # Ensure IP address was found
 if ($currentIp) {
